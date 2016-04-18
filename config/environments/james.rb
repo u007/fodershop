@@ -31,7 +31,9 @@ Rails.application.configure do
   # config.action_mailer.default_options = { host: "9.9.9.10", port: 3098 }
   config.assets.prefix = '/dev-assets'
   config.app_domain = "9.9.9.10"
-
+  
+  config.logger = Util::QuietLogger.new STDOUT
+  
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
@@ -40,7 +42,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

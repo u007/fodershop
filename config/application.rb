@@ -10,6 +10,9 @@ module Fodershop
   class Application < Rails::Application
     config.action_dispatch.default_headers['P3P'] = 'CP="Not used"'
     config.action_dispatch.default_headers.delete('X-Frame-Options')
+    
+    config.autoload_paths << Rails.root.join('lib').join("extras")
+    config.autoload_paths += %W(#{config.root}/lib/extras/*/*/*.rb)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

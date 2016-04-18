@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :shopify,
-    ShopifyApp.configuration.api_key,
-    ShopifyApp.configuration.secret,
+    ENV['shopify_id'],
+    ENV['shopify_token'],
     scope: ShopifyApp.configuration.scope
 end
